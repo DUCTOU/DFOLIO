@@ -9,11 +9,11 @@ export default function Connect() {
   const [state, formAction, pending] = useActionState<any, FormData>(submitContact, null);
 
   return (
-    <div className="bg-[#ffffff] rounded-2xl overflow-hidden shadow-[0_10px_48px_rgba(0,0,0,0.16)] max-w-5xl w-full mx-auto mt-10 border border-[#e0e0e0]">
+    <div className="w-full min-h-screen flex flex-col">
       <Header />
-      <div className="grid grid-cols-1 md:grid-cols-2 min-h-[480px]">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 max-w-[1400px] w-full mx-auto">
         {/* Left Side */}
-        <div className="p-16 border-r border-[#e0e0e0] flex flex-col justify-center">
+        <div className="p-8 md:p-16 border-b md:border-b-0 md:border-r border-[#e0e0e0] flex flex-col justify-center text-center md:text-left items-center md:items-start">
           <p className="text-[11px] tracking-[0.1em] uppercase text-[#4a9b8e] mb-3.5 font-semibold">
             Let's talk
           </p>
@@ -40,9 +40,9 @@ export default function Connect() {
         </div>
 
         {/* Right Side (Form) */}
-        <div className="p-16">
+        <div className="p-8 md:p-16">
           <form action={formAction}>
-            <div className="grid grid-cols-2 gap-3.5 mb-4.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-4.5">
               <div>
                 <label className="block text-[12px] font-semibold text-[#1a1a1a] mb-1.5 tracking-[0.02em]">First Name</label>
                 <input name="firstName" className="w-full p-3 border-[1.5px] border-[#e0e0e0] rounded-lg text-[13px] text-[#1a1a1a] outline-none transition-colors focus:border-[#4a9b8e] bg-white placeholder:text-[#bbb]" type="text" placeholder="John" />

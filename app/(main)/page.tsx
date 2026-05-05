@@ -6,46 +6,46 @@ import { MoveRight, Download } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="bg-[#ffffff] rounded-2xl overflow-hidden shadow-[0_10px_48px_rgba(0,0,0,0.16)] max-w-5xl w-full mx-auto mt-10 border border-[#e0e0e0]">
+    <div className="w-full min-h-screen flex flex-col">
       <Header />
-      <div className="grid grid-cols-1 md:grid-cols-2 p-16 pb-14 gap-0 items-center">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 p-6 md:p-16 gap-8 md:gap-0 items-center max-w-[1400px] w-full mx-auto overflow-hidden">
         {/* Left Side */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="pr-12"
+          className="pl-0 md:pl-12 lg:pl-32 max-w-[650px] justify-self-center md:justify-self-end text-center md:text-left flex flex-col items-center md:items-start"
         >
-          <h1 className="font-serif text-[56px] font-black leading-[1.06] text-[#1a1a1a] mb-5 tracking-[-0.02em]">
+          <h1 className="font-serif text-[48px] sm:text-[64px] lg:text-[84px] font-black leading-[1.06] text-[#1a1a1a] mb-6 tracking-[-0.02em]">
             Designing<br />experiences<br />that <em className="italic font-bold">in</em>spire<br />connection
           </h1>
-          <p className="text-sm text-[#6b6b6b] leading-[1.7] max-w-[310px] mb-9 font-light">
+          <p className="text-[15px] lg:text-[18px] text-[#6b6b6b] leading-[1.7] max-w-[400px] mb-10 font-light mx-auto md:mx-0">
             I am a passionate web designer dedicated to bringing your visions to life. With a keen eye for aesthetics and a deep understanding of user experience, I strive to create captivating websites that leave a lasting impression.
           </p>
           
-          <div className="flex gap-3 mb-12 border-none">
-            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-sans text-[13px] font-medium transition-all duration-200 border-[1.5px] border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white bg-transparent">
-              <MoveRight className="w-[13px] h-[13px]" />
+          <div className="flex flex-col sm:flex-row gap-4 mb-10 md:mb-14 border-none w-full sm:w-auto">
+            <button className="inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 rounded-full font-sans text-[14px] sm:text-[15px] font-medium transition-all duration-200 border-[1.5px] border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white bg-transparent w-full sm:w-auto">
+              <MoveRight className="w-[15px] h-[15px]" />
               Get in Touch
             </button>
-            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-sans text-[13px] font-medium transition-all duration-200 border-[1.5px] border-[#e0e0e0] text-[#1a1a1a] hover:border-[#1a1a1a] bg-transparent">
-              <Download className="w-[13px] h-[13px]" />
+            <button className="inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 rounded-full font-sans text-[14px] sm:text-[15px] font-medium transition-all duration-200 border-[1.5px] border-[#e0e0e0] text-[#1a1a1a] hover:border-[#1a1a1a] bg-transparent w-full sm:w-auto">
+              <Download className="w-[15px] h-[15px]" />
               Resume
             </button>
           </div>
 
-          <div className="flex gap-3">
-            <span className="w-[34px] h-[34px] rounded-full border border-[#e0e0e0] flex items-center justify-center cursor-pointer transition-colors duration-200 text-[#1a1a1a] hover:border-[#1a1a1a]">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          <div className="flex gap-4 justify-center md:justify-start">
+            <span className="w-[44px] h-[44px] rounded-full border border-[#e0e0e0] flex items-center justify-center cursor-pointer transition-colors duration-200 text-[#1a1a1a] hover:border-[#1a1a1a]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
             </span>
-            <span className="w-[34px] h-[34px] rounded-full border border-[#e0e0e0] flex items-center justify-center cursor-pointer transition-colors duration-200 text-[#1a1a1a] hover:border-[#1a1a1a]">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            <span className="w-[44px] h-[44px] rounded-full border border-[#e0e0e0] flex items-center justify-center cursor-pointer transition-colors duration-200 text-[#1a1a1a] hover:border-[#1a1a1a]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </span>
-            <span className="w-[34px] h-[34px] rounded-full border border-[#e0e0e0] flex items-center justify-center cursor-pointer transition-colors duration-200 text-[#1a1a1a] hover:border-[#1a1a1a]">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            <span className="w-[44px] h-[44px] rounded-full border border-[#e0e0e0] flex items-center justify-center cursor-pointer transition-colors duration-200 text-[#1a1a1a] hover:border-[#1a1a1a]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
             </span>
-            <span className="w-[34px] h-[34px] rounded-full border border-[#e0e0e0] flex items-center justify-center cursor-pointer transition-colors duration-200 text-[#1a1a1a] hover:border-[#1a1a1a]">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            <span className="w-[44px] h-[44px] rounded-full border border-[#e0e0e0] flex items-center justify-center cursor-pointer transition-colors duration-200 text-[#1a1a1a] hover:border-[#1a1a1a]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
             </span>
           </div>
         </motion.div>
@@ -55,9 +55,9 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center justify-center relative"
+          className="flex items-center justify-center relative w-full overflow-visible mt-8 md:mt-0"
         >
-          <div className="relative w-[300px] h-[340px]">
+          <div className="relative w-[280px] h-[310px] sm:w-[300px] sm:h-[340px] scale-100 md:scale-[1.35] lg:scale-[1.5] origin-center md:origin-left transition-transform duration-500 hover:scale-[1.05] md:hover:scale-[1.4] lg:hover:scale-[1.55]">
             {/* Decorations */}
             <div className="absolute top-4 right-7 text-[20px] text-[#1a1a1a] opacity-45 animate-float">✦</div>
             <div className="absolute top-[70px] left-[10px] text-[10px] text-[#1a1a1a] opacity-30 animate-float delay-1000">✧</div>

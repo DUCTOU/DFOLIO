@@ -8,7 +8,7 @@ export default function AdminDashboard() {
   const pathname = usePathname();
 
   return (
-    <div className="bg-[#ffffff] rounded-2xl overflow-hidden shadow-[0_10px_48px_rgba(0,0,0,0.16)] max-w-5xl w-full mx-auto mt-10 border border-[#e0e0e0]">
+    <div className="w-full min-h-screen flex flex-col">
       {/* Topbar */}
       <div className="flex justify-between items-center py-4 px-8 border-b border-[#e0e0e0]">
         <div className="flex gap-7">

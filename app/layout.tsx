@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${playfair.variable} font-sans bg-[#dcdcdc] min-h-screen p-4 md:p-8 flex flex-col items-center justify-center`}>
+      <body className={`${dmSans.variable} ${playfair.variable} font-sans bg-[#ffffff] min-h-screen flex flex-col`}>
         {children}
       </body>
     </html>

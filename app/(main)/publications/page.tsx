@@ -4,9 +4,9 @@ import Header from "@/components/Header";
 
 export default function Publications() {
   return (
-    <div className="bg-[#ffffff] rounded-2xl overflow-hidden shadow-[0_10px_48px_rgba(0,0,0,0.16)] max-w-5xl w-full mx-auto mt-10 border border-[#e0e0e0] min-h-[500px]">
+    <div className="w-full min-h-screen flex flex-col">
       <Header />
-      <div className="p-16 flex items-center justify-center h-[calc(100%-80px)]">
+      <div className="flex-1 p-16 flex items-center justify-center">
         <h2 className="font-serif text-[40px] font-black text-[#1a1a1a]">Publications (Coming Soon)</h2>
       </div>
     </div>
