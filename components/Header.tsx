@@ -18,17 +18,17 @@ export default function Header() {
 
   return (
     <header className="relative border-b border-[#e0e0e0] w-full z-50 bg-[#ffffff]">
-      <nav className="flex justify-between md:justify-center items-center py-4 md:py-5 px-6 md:px-12 w-full max-w-[1400px] mx-auto">
-        {/* Mobile Logo */}
-        <div className="font-serif font-bold text-xl text-[#1a1a1a] md:hidden flex items-center gap-2">
+      <nav className="flex justify-between items-center py-4 md:py-5 px-6 md:px-12 w-full max-w-[1400px] mx-auto relative">
+        {/* Logo */}
+        <div className="font-serif font-bold text-xl text-[#1a1a1a] flex items-center gap-2 z-10">
           <div className="w-5 h-5 rounded-full bg-[#1a1a1a] flex items-center justify-center">
             <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
           </div>
-          Kokahu
+          DFOLIO
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
