@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, MessageSquare, Briefcase, FileText, Image as ImageIcon, TableProperties } from "lucide-react";
+import { LayoutDashboard, MessageSquare, Briefcase, FileText, Image as ImageIcon, TableProperties, LogOut } from "lucide-react";
+import { signOut } from "next-auth/react";
 
 export default function AdminDashboard() {
   const pathname = usePathname();
@@ -17,9 +18,15 @@ export default function AdminDashboard() {
           <Link href="/publications" className="text-[13px] text-[#6b6b6b] transition-colors hover:text-[#1a1a1a]">Publications</Link>
           <Link href="/connect" className="text-[13px] text-[#6b6b6b] transition-colors hover:text-[#1a1a1a]">Connect</Link>
         </div>
-        <span className="text-[11.5px] bg-[#f5f5f5] border border-[#e0e0e0] py-1.5 px-3.5 rounded-full text-[#6b6b6b]">
-          ⚙ Admin Access
-        </span>
+        <div className="flex items-center gap-3">
+          <span className="text-[11.5px] bg-[#f5f5f5] border border-[#e0e0e0] py-1.5 px-3.5 rounded-full text-[#6b6b6b]">
+            ⚙ Admin Access
+          </span>
+          <button onClick={() => signOut({ callbackUrl: "/login" })} className="text-[11.5px] bg-[#1a1a1a] text-white py-1.5 px-3.5 rounded-full flex items-center gap-1.5 hover:opacity-80 transition-opacity cursor-pointer">
+            <LogOut className="w-3 h-3" />
+            Sign Out
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-[210px_1fr] min-h-[440px]">

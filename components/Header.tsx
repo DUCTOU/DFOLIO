@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -47,13 +47,24 @@ export default function Header() {
           })}
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden p-2 -mr-2 text-[#1a1a1a] transition-colors"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Right Corner Actions */}
+        <div className="flex items-center gap-2 z-10">
+          <Link 
+            href="/admin" 
+            className="hidden md:flex items-center gap-1.5 text-[13px] font-medium border border-[#e0e0e0] rounded-full px-4 py-2 text-[#1a1a1a] hover:bg-[#f5f5f5] transition-all hover:border-[#1a1a1a]"
+          >
+            <User className="w-3.5 h-3.5" />
+            Admin Login
+          </Link>
+          
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden p-2 -mr-2 text-[#1a1a1a] transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu Dropdown */}
@@ -77,6 +88,17 @@ export default function Header() {
             </Link>
           );
         })}
+        
+        <div className="w-8 h-[1.5px] bg-[#e0e0e0] my-2"></div>
+        
+        <Link 
+          href="/admin" 
+          onClick={() => setIsMenuOpen(false)}
+          className="text-base font-medium transition-colors text-[#4a9b8e] hover:text-[#387c71] flex items-center gap-2"
+        >
+          <User className="w-4 h-4" />
+          Admin Login
+        </Link>
       </div>
     </header>
   );
