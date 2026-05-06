@@ -23,7 +23,7 @@ export default function Home() {
             Designing<br />experiences<br />that <em className="italic font-bold">in</em>spire<br />connection
           </h1>
           <p className="text-[15px] lg:text-[18px] text-[#6b6b6b] leading-[1.7] max-w-[400px] mb-10 font-light mx-auto md:mx-0">
-            I am a passionate web designer dedicated to bringing your visions to life. With a keen eye for aesthetics and a deep understanding of user experience, I strive to create captivating websites that leave a lasting impression.
+           I’m a software engineer at heart with a passion for building things that work beautifully. I love solving problems through code, diving into open-source, and keeping my designs clean and simple. For me, it’s not just about building apps—it’s about creating digital experiences that feel easy, intuitive.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-10 md:mb-14 border-none w-full sm:w-auto">
