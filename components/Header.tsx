@@ -20,12 +20,19 @@ export default function Header() {
     <header className="relative border-b border-[#e0e0e0] w-full z-50 bg-[#ffffff]">
       <nav className="flex justify-between items-center py-4 md:py-5 px-6 md:px-12 w-full max-w-[1400px] mx-auto relative">
         {/* Logo */}
-        <div className="font-serif font-bold text-xl text-[#1a1a1a] flex items-center gap-2 z-10">
-          <div className="w-5 h-5 rounded-full bg-[#1a1a1a] flex items-center justify-center">
-            <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
-          </div>
-          DFOLIO
-        </div>
+        <Link href="/" className="z-10 flex items-center ">
+          <img 
+            src="/d2.jpg" 
+            alt="DFOLIO Logo" 
+            className="h-8 w-auto object-contain" 
+            onError={(e) => {
+              // Fallback text if image isn't found
+              (e.target as HTMLImageElement).style.display = 'none';
+              (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+            }}
+          />
+          <span className="hidden font-serif font-bold text-xl text-[#1a1a1a]">DFOLIO</span>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">

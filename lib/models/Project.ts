@@ -6,6 +6,7 @@ const ProjectSchema = new Schema({
   techStack: [{ type: String }],
   imageURL: { type: String },
   liveLink: { type: String },
+  order: { type: Number, default: 0 },
 });
 
 export const Project = models.Project || model('Project', ProjectSchema);

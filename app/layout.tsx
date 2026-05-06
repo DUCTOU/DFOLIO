@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Kokahu Portfolio",
+  title: "D Portfolio",
   description: "Portfolio built with Next.js",
 };
 

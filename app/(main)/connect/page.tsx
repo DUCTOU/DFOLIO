@@ -28,13 +28,13 @@ export default function Connect() {
               <div className="w-12 h-12 rounded-full bg-[#f5f5f5] border border-[#e0e0e0] flex items-center justify-center shrink-0">
                 <Phone className="w-5 h-5 text-[#1a1a1a]" />
               </div>
-              +1 (555) 000 0000
+              +91 7904878046
             </div>
             <div className="flex items-center gap-4 text-[15px] text-[#6b6b6b]">
               <div className="w-12 h-12 rounded-full bg-[#f5f5f5] border border-[#e0e0e0] flex items-center justify-center shrink-0">
                 <Mail className="w-5 h-5 text-[#1a1a1a]" />
               </div>
-              hello@kokahu.design
+              dharunprakash2128@gmail.com
             </div>
           </div>
         </div>

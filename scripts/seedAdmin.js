@@ -1,11 +1,8 @@
 require('dotenv').config({ path: '.env.local' });
 require('dotenv').config({ path: '.env' });
-
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/portfolio";
-
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   passwordHash: { type: String, required: true },
@@ -33,5 +30,4 @@ async function seed() {
   console.log(`Password: ${password}`);
   process.exit(0);
 }
-
 seed().catch(console.error);
