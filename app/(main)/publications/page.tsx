@@ -3,6 +3,8 @@ import { getPublications } from "@/app/actions/publicationActions";
 import Link from "next/link";
 import { ExternalLink, FileText } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: "Publications | Kokahu",
   description: "My publications and articles",

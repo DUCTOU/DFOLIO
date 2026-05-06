@@ -2,6 +2,8 @@ import { connectToDatabase } from "@/lib/mongodb";
 import { Contact } from "@/lib/models/Contact";
 import { LayoutDashboard } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
   await connectToDatabase();
   const contacts = await Contact.find().sort({ timestamp: -1 }).lean();

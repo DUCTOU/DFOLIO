@@ -1,6 +1,8 @@
 import { getPublications, createPublication, deletePublication } from "@/app/actions/publicationActions";
 import { FileText, Trash2 } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminPublications() {
   const publications = await getPublications();
 
