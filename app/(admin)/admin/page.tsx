@@ -1,12 +1,12 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { LayoutDashboard, MessageSquare, Briefcase, FileText, Image as ImageIcon, TableProperties, LogOut } from "lucide-react";
-import { signOut } from "next-auth/react";
+import { LayoutDashboard, MessageSquare, Briefcase, FileText, Image as ImageIcon, TableProperties } from "lucide-react";
+import SignOutButton from "./SignOutButton";
+import { connectToDatabase } from "@/lib/mongodb";
+import { Contact } from "@/lib/models/Contact";
 
-export default function AdminDashboard() {
-  const pathname = usePathname();
+export default async function AdminDashboard() {
+  await connectToDatabase();
+  const contacts = await Contact.find().sort({ timestamp: -1 }).lean();
 
   return (
     <div className="w-full min-h-screen flex flex-col">
@@ -22,10 +22,7 @@ export default function AdminDashboard() {
           <span className="text-[11.5px] bg-[#f5f5f5] border border-[#e0e0e0] py-1.5 px-3.5 rounded-full text-[#6b6b6b]">
             ⚙ Admin Access
           </span>
-          <button onClick={() => signOut({ callbackUrl: "/login" })} className="text-[11.5px] bg-[#1a1a1a] text-white py-1.5 px-3.5 rounded-full flex items-center gap-1.5 hover:opacity-80 transition-opacity cursor-pointer">
-            <LogOut className="w-3 h-3" />
-            Sign Out
-          </button>
+          <SignOutButton />
         </div>
       </div>
 
@@ -75,28 +72,23 @@ export default function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {/* Dummy Data */}
-              <tr className="hover:bg-[#fafafa]">
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#1a1a1a] font-medium align-top">Marcan Adoin</td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top"><span className="max-w-[130px] whitespace-nowrap overflow-hidden text-ellipsis block">shtech@example.com</span></td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top">Remessary</td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top"><span className="max-w-[130px] whitespace-nowrap overflow-hidden text-ellipsis block">I kariins main clipa...</span></td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top text-[11px] whitespace-nowrap">2023-16-17 6:25:00</td>
-              </tr>
-              <tr className="hover:bg-[#fafafa]">
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#1a1a1a] font-medium align-top">Kestly Delith</td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top"><span className="max-w-[130px] whitespace-nowrap overflow-hidden text-ellipsis block">cadelli@example.com</span></td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top">Male</td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top"><span className="max-w-[130px] whitespace-nowrap overflow-hidden text-ellipsis block">Make your connect with...</span></td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top text-[11px] whitespace-nowrap">2023-16-17 6:30:00</td>
-              </tr>
-              <tr className="hover:bg-[#fafafa]">
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#1a1a1a] font-medium align-top">Josln Showh</td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top"><span className="max-w-[130px] whitespace-nowrap overflow-hidden text-ellipsis block">somenane@gmail.com</span></td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top">Remessary</td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top"><span className="max-w-[130px] whitespace-nowrap overflow-hidden text-ellipsis block">How a cronno tranmer...</span></td>
-                <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top text-[11px] whitespace-nowrap">2023-16-17 6:06:00</td>
-              </tr>
+              {contacts.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="py-4 px-3 text-center text-[#6b6b6b] text-[12px]">No form submissions found.</td>
+                </tr>
+              ) : (
+                contacts.map((contact: any) => (
+                  <tr key={contact._id.toString()} className="hover:bg-[#fafafa]">
+                    <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#1a1a1a] font-medium align-top">{contact.firstName} {contact.lastName}</td>
+                    <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top"><span className="max-w-[130px] whitespace-nowrap overflow-hidden text-ellipsis block">{contact.email}</span></td>
+                    <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top">{contact.subject}</td>
+                    <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top"><span className="max-w-[130px] whitespace-nowrap overflow-hidden text-ellipsis block">{contact.message}</span></td>
+                    <td className="py-2.5 px-3 border-b border-[#e0e0e0] text-[#6b6b6b] align-top text-[11px] whitespace-nowrap">
+                      {new Date(contact.timestamp).toLocaleString()}
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

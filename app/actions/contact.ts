@@ -1,6 +1,8 @@
 "use server";
 
 import { z } from "zod";
+import { connectToDatabase } from "@/lib/mongodb";
+import { Contact } from "@/lib/models/Contact";
 
 const contactSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -22,8 +24,8 @@ export async function submitContact(prevState: any, formData: FormData) {
 
     const parsedData = contactSchema.parse(rawData);
 
-    // TODO: Save to MongoDB here
-    console.log("Saving to MongoDB", parsedData);
+    await connectToDatabase();
+    await Contact.create(parsedData);
 
     return { success: true, message: "Message sent successfully!" };
   } catch (error) {

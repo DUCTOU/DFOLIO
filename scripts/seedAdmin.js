@@ -1,3 +1,6 @@
+require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env' });
+
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
@@ -14,19 +17,18 @@ async function seed() {
   await mongoose.connect(MONGODB_URI);
   console.log("Connected to MongoDB.");
 
-  const username = "admin";
+  const username = "admin123";
   const password = "password123";
 
-  const existingAdmin = await User.findOne({ username });
-  if (existingAdmin) {
-    console.log("Admin user already exists.");
-    process.exit(0);
-  }
-
   const passwordHash = await bcrypt.hash(password, 10);
-  await User.create({ username, passwordHash });
 
-  console.log(`Admin created successfully!`);
+  await User.findOneAndUpdate(
+    { username: username }, 
+    { username: username, passwordHash: passwordHash },
+    { upsert: true, new: true }
+  );
+
+  console.log(`Admin credentials updated/created successfully!`);
   console.log(`Username: ${username}`);
   console.log(`Password: ${password}`);
   process.exit(0);
