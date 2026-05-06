@@ -64,16 +64,11 @@ export default function Home() {
           >
             <div className="relative w-[280px] h-[310px] sm:w-[300px] sm:h-[340px] scale-100 md:scale-[1.35] lg:scale-[1.5] origin-center md:origin-left transition-transform duration-500 hover:scale-[1.05] md:hover:scale-[1.4] lg:hover:scale-[1.55]">
               
-              <div className="absolute top-4 right-7 text-[20px] text-[#1a1a1a] opacity-45 animate-float">✦</div>
-              <div className="absolute top-[70px] left-[10px] text-[10px] text-[#1a1a1a] opacity-30 animate-float delay-1000">✧</div>
-              <div className="absolute bottom-[50px] right-0 text-[30px] opacity-50 animate-float delay-500">⊕</div>
-              <div className="absolute bottom-[20px] left-[30px] text-[14px] text-[#e8a87c] opacity-70 animate-float delay-150">✦</div>
-              <div className="absolute top-[110px] right-2 text-[22px] text-[#e8a87c] opacity-60">+</div>
-              <div className="absolute top-2 left-[70px] w-[9px] h-[9px] rounded-full bg-[#e8a87c] opacity-50"></div>
+              
 
               <div className="relative w-full h-full overflow-hidden">
                 <Image 
-                  src="/c.jpg"
+                  src="/F.png"
                   alt="Developer Illustration"
                   fill
                   priority
@@ -82,8 +77,7 @@ export default function Home() {
                 />
               </div>
 
-              {/* Circular Dotted Border (Optional: matches your previous SVG vibe) */}
-              <div className="absolute inset-0 border-[1.2px] border-dashed border-[#d8d8d8] rounded-full -z-10 scale-[1.1]" />
+              
 
             </div>
           </motion.div>
